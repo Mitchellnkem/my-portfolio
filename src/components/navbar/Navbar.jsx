@@ -1,12 +1,22 @@
 /* eslint-disable no-unused-vars */
 import React from 'react'
 import './Navbar.css'
+import {AiOutlineHome} from 'react-icons/ai'
+import {AiOutlineUser} from 'react-icons/ai'
+import {BiBook, BiMessageSquareDetail} from 'react-icons/bi'
+import {RiServiceLine} from 'react-icons/ri'
+import { useState } from 'react'
 
 const Navbar = () => {
+	const [activeNav, setActiveNav] = useState('#')
   return (
-	<div>
-	Nav
-	</div>
+	<nav>
+		<a href="#" onClick={() => setActiveNav('#')} className={activeNav === '#' ? 'active' : ''}><AiOutlineHome/></a>
+		<a href="#about" onClick={() => setActiveNav('#about')} className={activeNav === '#about' ? 'active' : ''}><AiOutlineUser/></a>
+		<a href="#experience" onClick={() => setActiveNav('#experience')} className={activeNav === '#about' ? 'active' : ''}><BiBook/></a>
+		<a href="#services" onClick={() => setActiveNav('#services')} className={activeNav === '#experience' ? 'active' : ''}><RiServiceLine/></a>
+		<a href="#contact" onClick={() => setActiveNav('#contact')} className={activeNav === '#contact' ? 'active' : ''}><BiMessageSquareDetail/></a>
+	</nav>
   )
 }
 
